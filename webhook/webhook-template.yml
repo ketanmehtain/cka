@@ -21,4 +21,4 @@ webhooks:
         name: webhook
         namespace: default
         path: /validate/
-      caBundle: ""
+      caBundle: "${CA_PEM}"

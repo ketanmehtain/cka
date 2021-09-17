@@ -37,7 +37,7 @@ def deployment_webhook():
         return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": True, "uid": uid, "status": {"message": "Repo exist!"}}})
       else:
         #Send response back to controller if validations failed
-        return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": False, "uid": uid, "status": {"message": "Use ocir.io registry."}}})
+        return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": False, "uid": uid, "status": {"message": "Use some.io registry."}}})
         
     elif kind_type in resouce_type:
       # Find the image
@@ -49,7 +49,7 @@ def deployment_webhook():
         return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": True, "uid": uid, "status": {"message": "Repo exist!"}}})
       else:
         #Send response back to controller if validations failed
-        return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": False, "uid": uid, "status": {"message": "Use ocir.io registry."}}})
+        return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": False, "uid": uid, "status": {"message": "Use some.io registry."}}})
     
     elif kind_type in "CronJob":
       #Find the image
@@ -61,11 +61,11 @@ def deployment_webhook():
         return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": True, "uid": uid, "status": {"message": "Repo exist!"}}})
       else:
         #Send response back to controller if validations failed
-        return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": False, "uid": uid, "status": {"message": "Use ocir.io registry."}}})
+        return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": False, "uid": uid, "status": {"message": "Use some.io registry."}}})
   except:
-    return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": False, "uid": uid, "status": {"message": "Use ocir.io registry."}}})
+    return jsonify({"apiVersion": "admission.k8s.io/v1", "kind": "AdmissionReview", "response": {"allowed": False, "uid": uid, "status": {"message": "Use some.io registry."}}})
 
 if __name__ == '__main__':
-    pkj.run(ssl_context=('certs/webhook-crt.pem', 'certs/webhook-key.pem'),debug=True, host='0.0.0.0')
+    pkj.run(debug=True, host='0.0.0.0')
 
 
