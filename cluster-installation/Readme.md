@@ -22,7 +22,7 @@ $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 I'm using Pod network as Calico here. The below command applies the manifest for Calico.
 
 ```
-$ kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+$ kubectl apply -f https://docs.projectcalico.org/v3.22/manifests/calico.yaml
 ```
 
 ## Joining the Worker Nodes
